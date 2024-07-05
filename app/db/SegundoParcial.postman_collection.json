@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "482c5de2-d165-464e-87e1-aaf89f1367f4",
+		"name": "SegundoParcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27248795"
+	},
+	"item": [
+		{
+			"name": "01-crearProducto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "I-Pad 9",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "Mac",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "tablet",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "1300000",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/cel.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:666/tienda/alta"
+			},
+			"response": []
+		},
+		{
+			"name": "02-consultarProducto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "S24",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "Samsung",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "smartphone",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "1500000",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stock",
+							"value": "20",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/cel.jpg",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:666/tienda/consultar"
+			},
+			"response": []
+		},
+		{
+			"name": "03-crearVenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "candela@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "nombre_usuario",
+							"value": "Candela",
+							"type": "text"
+						},
+						{
+							"key": "nombre_producto",
+							"value": "S24",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "Samsung",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "smartphone",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/perfil.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:666/ventas/alta"
+			},
+			"response": []
+		},
+		{
+			"name": "04 - ventas - consultar productos vendidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/ventas/consultar/productos/vendidos?fecha=2024-07-05",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"consultar",
+						"productos",
+						"vendidos"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "2024-07-05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05 - ventas - ventas por usuario por email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/ventas/consultar/ventas/porUsuario?email=candela@mail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"consultar",
+						"ventas",
+						"porUsuario"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "candela@mail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06 - ventas - ventas por tipo de producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/ventas/consultar/ventas/porProducto?tipo=smartphone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"consultar",
+						"ventas",
+						"porProducto"
+					],
+					"query": [
+						{
+							"key": "tipo",
+							"value": "smartphone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07 - ventas - entre dos valores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/ventas/consultar/productos/entreValores?min=10&max=31000000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"consultar",
+						"productos",
+						"entreValores"
+					],
+					"query": [
+						{
+							"key": "min",
+							"value": "10"
+						},
+						{
+							"key": "max",
+							"value": "31000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08 - ventas - ingresos por fecha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/ventas/consultar/ventas/ingresos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"consultar",
+						"ventas",
+						"ingresos"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "2024-07-04",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "09 - ventas - Producto mas vendido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/ventas/consultar/productos/entreValores?min=10&max=31000000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"consultar",
+						"productos",
+						"entreValores"
+					],
+					"query": [
+						{
+							"key": "min",
+							"value": "10"
+						},
+						{
+							"key": "max",
+							"value": "31000000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
