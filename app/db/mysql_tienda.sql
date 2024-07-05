@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2024 at 07:32 AM
+-- Generation Time: Jul 05, 2024 at 08:13 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,7 +45,7 @@ INSERT INTO `tienda` (`id`, `nombre`, `marca`, `tipo`, `precio`, `stock`, `image
 (1, 'S22', 'Samsung', 'smartphone', 850000, 20, 'ImagenesDeProductos/2024/S22'),
 (2, 'S23', 'Samsung', 'smartphone', 1000000, 20, 'ImagenesDeProductos/2024/smartphone-S23.jpeg'),
 (3, 'S24', 'Samsung', 'smartphone', 1500000, 18, 'ImagenesDeProductos/2024/smartphone-S24.jpeg'),
-(4, 'MotoX', 'Motorola', 'smartphone', 800000, 20, 'ImagenesDeProductos/2024/smartphone-MotoX.jpeg'),
+(4, 'MotoX', 'Motorola', 'smartphone', 800000, 18, 'ImagenesDeProductos/2024/smartphone-MotoX.jpeg'),
 (5, 'Redmi Note 15', 'Xiaomi', 'smartphone', 800000, 5, 'ImagenesDeProductos/2024/smartphone-Redmi Note 15.jpeg'),
 (6, 'Redmi Tab', 'Xiaomi', 'tablet', 500000, 30, 'ImagenesDeProductos/2024/tablet-Redmi Tab.jpeg'),
 (7, 'Yoga N12', 'Lenovo', 'tablet', 800000, 29, 'ImagenesDeProductos/2024/tablet-Yoga N12.jpeg'),
@@ -75,9 +75,11 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `fecha`, `email`, `nombre_usuario`, `producto`, `cantidad`, `precio`, `imagen`) VALUES
-(1, '2024-07-04', 'candela@mail.com', 'Candela', 3, 1, 1500000, 'ImagenesDeVenta/2024/smartphone-Samsung - S24.candela - jpeg'),
+(1, '2024-07-04', 'Leonardo@mail.com', 'Leonardo', 4, 1, 800000, 'ImagenesDeVenta/2024/smartphone-Samsung - S24.candela - jpeg'),
 (2, '2024-07-05', 'candela@mail.com', 'Candela', 3, 1, 1500000, 'ImagenesDeVenta/2024/smartphone-Samsung - S24 - candela.jpeg'),
-(3, '2024-07-05', 'belen@mail.com', 'Belen', 7, 1, 800000, 'ImagenesDeVenta/2024/tablet-Lenovo-Yoga N12-belen.jpeg');
+(3, '2024-07-05', 'belen@mail.com', 'Belen', 7, 1, 800000, 'ImagenesDeVenta/2024/tablet-Lenovo-Yoga N12-belen.jpeg'),
+(4, '2024-07-05', 'micaela@mail.com', 'Micaela', 5, 1, 800000, 'Error al cargar la foto'),
+(5, '2024-07-05', 'Leonardo@mail.com', 'Leonardo', 4, 1, 800000, 'Error al cargar la foto');
 
 --
 -- Indexes for dumped tables
@@ -109,7 +111,7 @@ ALTER TABLE `tienda`
 -- AUTO_INCREMENT for table `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

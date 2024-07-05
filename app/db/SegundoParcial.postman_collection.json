@@ -322,6 +322,61 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "10 - ventas - modificar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idPedido",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "Leonardo@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "nombre_usuario",
+							"value": "Leonardo",
+							"type": "text"
+						},
+						{
+							"key": "nombre_producto",
+							"value": "Redmi Note 15",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "Xiaomi",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "smartphone",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:666/ventas/modificar"
+			},
+			"response": []
 		}
 	]
 }

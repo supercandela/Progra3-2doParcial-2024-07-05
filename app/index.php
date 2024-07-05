@@ -47,6 +47,7 @@ $app->group('/ventas', function (RouteCollectorProxy $group) {
     $group->get('/ventas/ingresos', \VentaController::class . ':IngresosPorFecha');
     $group->get('/productos/masVendido', \VentaController::class . ':ProductoMasVendido');
   });
+  $group->put('/modificar', \VentaController::class . ':ModificarVenta');
   
 });
 

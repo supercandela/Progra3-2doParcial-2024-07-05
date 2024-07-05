@@ -168,18 +168,45 @@ class VentaController extends Venta
         return $response->withHeader('Content-Type', 'application/json');
     }
 
-    
+    /**
+     * Debe recibir el número de pedido, el email del usuario, el nombre, tipo, marca y cantidad. Si existe (por numero de pedido) se modifican el resto de los datos, de lo contrario, informar que no existe ese número de pedido.
+     */
+    public static function ModificarVenta ($request, $response, $args)
+    {
+        $parametros = $request->getParsedBody();
 
-    // public static function consultar ($request, $response, $args)
-    // {
-    //     $parametros = $request->getParsedBody();
-    //     $nombre = $parametros['nombre'];
-    //     $marca = $parametros['marca'];
-    //     $tipo = $parametros['tipo'];
+        $id = $parametros['idPedido'];
+        $email = $parametros['email'];
+        $nombreUsuario = $parametros['nombre_usuario'];
+        $nombreProducto = $parametros['nombre_producto'];
+        $tipo = $parametros['tipo'];
+        $marca = $parametros['marca'];
+        $cantidad = $parametros['cantidad'];
 
-    //     $payload = Tienda::consultarProducto($nombre, $marca, $tipo);
-    //     $response->getBody()->write($payload);
-    //     return $response->withHeader('Content-Type', 'application/json');
-    // }
+        //ver si el id de pedido existe
+        $venta = Venta::obtenerVentaPorId($id);
 
+        if ($venta) {
+            //verificar si existe el producto
+            $prod = Tienda::verificarSiExiste($nombreProducto, $marca, $tipo);
+            if ($prod) {
+                $venta->email = $email;
+                $venta->nombre_usuario = $nombreUsuario;
+                $venta->producto = $prod->id;
+                $venta->cantidad = $cantidad;
+                $venta->precio = $prod->precio * $cantidad;
+
+                $venta->actualizarVenta();
+
+                $payload = json_encode(array("mensaje" => "Venta actualizada con éxito."));
+            } else {
+                $payload = json_encode(array("mensaje" => "El producto no existe en la tienda."));
+            }
+        } else {
+            $payload = json_encode(array("mensaje" => "El id del pedido no corresponde a una venta en registros."));
+        }
+
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
 }
