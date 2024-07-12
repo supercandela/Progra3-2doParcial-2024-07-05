@@ -44,12 +44,11 @@ class ParametrosMiddleware
      * Chequea los parámetros al momento de crear un pedido.
      * id_mesa, nombre_cliente, id_estado_pedido, id_mozo, productos_en_pedido, imagen
      */
-    public function crearPedidoMW (Request $request, RequestHandler $handler)
+    public function checkPorMailMW (Request $request, RequestHandler $handler)
     {
-        $parametros = $request->getParsedBody();
+        $parametros = $request->getQueryParams();
 
-        if (isset($parametros['id_mesa']) && isset($parametros['nombre_cliente']) && isset($parametros['id_estado_pedido'])
-            && isset($parametros['id_mozo']) && isset($parametros['productos_en_pedido']))
+        if (isset($parametros['email']))
         {
             $response = $handler->handle($request);
         } else {

@@ -9,6 +9,12 @@
 		{
 			"name": "01-crearProducto",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjAyMTgyMzUsImRhdGEiOnsidXN1YXJpbyI6ImNhbmRlbGEiLCJwZXJmaWwiOiJhZG1pbiJ9LCJhcHAiOiJUaWVuZGEifQ.iZ8H1iDUQFJLR7NzzYgbxzyA4d6ocAqojDmUMwBFjpc"
+					}
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -16,22 +22,22 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "I-Pad 9",
+							"value": "A50",
 							"type": "text"
 						},
 						{
 							"key": "marca",
-							"value": "Mac",
+							"value": "Samsung",
 							"type": "text"
 						},
 						{
 							"key": "tipo",
-							"value": "tablet",
+							"value": "smartphone",
 							"type": "text"
 						},
 						{
 							"key": "precio",
-							"value": "1300000",
+							"value": "800000",
 							"type": "text"
 						},
 						{
@@ -100,6 +106,12 @@
 		{
 			"name": "03-crearVenta",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjAyMjM1NDksImRhdGEiOnsidXN1YXJpbyI6ImNhbmRlbGEiLCJwZXJmaWwiOiJhZG1pbiJ9LCJhcHAiOiJUaWVuZGEifQ.lJ0IhWh_gQl5tLDO4Tmo3h11kVqGFZz76hK3bMT4Ktg"
+					}
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -107,32 +119,32 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "candela@mail.com",
+							"value": "agustin@mail.com",
 							"type": "text"
 						},
 						{
 							"key": "nombre_usuario",
-							"value": "Candela",
+							"value": "Agustin",
 							"type": "text"
 						},
 						{
 							"key": "nombre_producto",
-							"value": "S24",
+							"value": "I-Pad 9",
 							"type": "text"
 						},
 						{
 							"key": "marca",
-							"value": "Samsung",
+							"value": "Mac",
 							"type": "text"
 						},
 						{
 							"key": "tipo",
-							"value": "smartphone",
+							"value": "tablet",
 							"type": "text"
 						},
 						{
 							"key": "cantidad",
-							"value": "1",
+							"value": "30",
 							"type": "text"
 						},
 						{
@@ -149,6 +161,12 @@
 		{
 			"name": "04 - ventas - consultar productos vendidos",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjAyMjAwMTcsImRhdGEiOnsidXN1YXJpbyI6ImFndXN0aW4iLCJwZXJmaWwiOiJlbXBsZWFkbyJ9LCJhcHAiOiJUaWVuZGEifQ.NA0Y7w_2bZ-DFUiH82FC9weexHIzvK48w0U7CNT98R4"
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -177,10 +195,16 @@
 		{
 			"name": "05 - ventas - ventas por usuario por email",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjAyMjA1NjEsImRhdGEiOnsidXN1YXJpbyI6ImFndXN0aW4iLCJwZXJmaWwiOiJlbXBsZWFkbyJ9LCJhcHAiOiJUaWVuZGEifQ.zf4jYP8Oer2p1YIl9xYLinZzq5epuKhHfyvXsaHcH7Y"
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/ventas/consultar/ventas/porUsuario?email=candela@mail.com",
+					"raw": "http://localhost:666/ventas/consultar/ventas/porUsuario?email=micaela@mail.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -195,7 +219,7 @@
 					"query": [
 						{
 							"key": "email",
-							"value": "candela@mail.com"
+							"value": "micaela@mail.com"
 						}
 					]
 				}
@@ -294,10 +318,16 @@
 		{
 			"name": "09 - ventas - Producto mas vendido",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjAyMjczNTEsImRhdGEiOnsidXN1YXJpbyI6ImFsZWphbmRybyIsInBlcmZpbCI6ImFkbWluIn0sImFwcCI6IlRpZW5kYSJ9.TeCXsFNdBcgKwz-ovyN2NSTlpPFif-GvWMHUb_MBhAI"
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/ventas/consultar/productos/entreValores?min=10&max=31000000",
+					"raw": "http://localhost:666/ventas/consultar/productos/masVendido",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -307,16 +337,18 @@
 						"ventas",
 						"consultar",
 						"productos",
-						"entreValores"
+						"masVendido"
 					],
 					"query": [
 						{
-							"key": "min",
-							"value": "10"
+							"key": "",
+							"value": "",
+							"disabled": true
 						},
 						{
-							"key": "max",
-							"value": "31000000"
+							"key": "",
+							"value": "",
+							"disabled": true
 						}
 					]
 				}
@@ -329,52 +361,93 @@
 				"method": "PUT",
 				"header": [],
 				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPedido\": 35,\r\n    \"email\": \"micaela@mail.com\",\r\n    \"nombre_usuario\": \"Micaela\",\r\n    \"nombre_producto\": \"Redmi Note 15\",\r\n    \"marca\": \"Xiaomi\",\r\n    \"tipo\": \"smartphone\",\r\n    \"cantidad\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:666/ventas/modificar"
+			},
+			"response": []
+		},
+		{
+			"name": "11-Usuarios-registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "idPedido",
-							"value": "1",
+							"key": "mail",
+							"value": "alejandro@mail.com",
 							"type": "text"
 						},
 						{
-							"key": "email",
-							"value": "Leonardo@mail.com",
+							"key": "usuario",
+							"value": "alejandro",
 							"type": "text"
 						},
 						{
-							"key": "nombre_usuario",
-							"value": "Leonardo",
+							"key": "contrasena",
+							"value": "123456",
 							"type": "text"
 						},
 						{
-							"key": "nombre_producto",
-							"value": "Redmi Note 15",
-							"type": "text"
-						},
-						{
-							"key": "marca",
-							"value": "Xiaomi",
-							"type": "text"
-						},
-						{
-							"key": "tipo",
-							"value": "smartphone",
-							"type": "text"
-						},
-						{
-							"key": "cantidad",
-							"value": "1",
+							"key": "perfil",
+							"value": "admin",
 							"type": "text"
 						},
 						{
 							"key": "imagen",
 							"type": "file",
-							"src": [],
-							"disabled": true
+							"src": "/C:/Users/Administrator/Desktop/perfil.jpg"
 						}
 					]
 				},
-				"url": "http://localhost:666/ventas/modificar"
+				"url": "http://localhost:666/usuarios/registro"
+			},
+			"response": []
+		},
+		{
+			"name": "12-Usuarios-Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "alejandro",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:666/usuarios/login"
+			},
+			"response": []
+		},
+		{
+			"name": "13-Ventas-Descargar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjAyMjE5MTgsImRhdGEiOnsidXN1YXJpbyI6ImNhbmRlbGEiLCJwZXJmaWwiOiJhZG1pbiJ9LCJhcHAiOiJUaWVuZGEifQ.Q4TR2WQtuIp5T82z8Sfm0Ms1K5EyaedhqQQfGI4j0Dw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:666/ventas/descargar"
 			},
 			"response": []
 		}

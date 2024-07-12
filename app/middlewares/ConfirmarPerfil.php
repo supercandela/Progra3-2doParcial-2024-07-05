@@ -6,7 +6,7 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 
 require_once './utils/AutentificadorJWT.php';
 
-class RolesMiddleware
+class ConfirmarPerfilMiddleware
 {
     private $rol = array();
 
@@ -21,7 +21,7 @@ class RolesMiddleware
         $token = trim(explode("Bearer", $header)[1]);
         $data = AutentificadorJWT::ObtenerData($token);
 
-        if (in_array($data->rol, $this->rol)) {
+        if (in_array($data->perfil, $this->rol)) {
             $response = $handler->handle($request);
         } else {
             $response = new Response();

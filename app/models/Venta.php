@@ -122,4 +122,15 @@ class Venta
         $consulta->bindValue(':id', $this->id, PDO::PARAM_INT);
         $consulta->execute();
     }
+
+    public static function obtenerVentas () 
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM ventas");
+        $consulta->execute();
+    
+        $data = $consulta->fetchAll(PDO::FETCH_CLASS, 'Venta');
+
+        return $data;
+    }
 }

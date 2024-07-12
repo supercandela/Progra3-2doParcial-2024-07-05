@@ -209,4 +209,33 @@ class VentaController extends Venta
         $response->getBody()->write($payload);
         return $response->withHeader('Content-Type', 'application/json');
     }
+
+    public static function descargarVentas ($request, $response, $args)
+    {
+        $lista = Venta::obtenerVentas();
+
+        // Crea un archivo temporal para el CSV
+        $archivoTemp = tmpfile();
+        $metaData = stream_get_meta_data($archivoTemp);
+        $filePath = $metaData['uri'];
+
+        // Escribe los datos en el archivo temporal
+        foreach ($lista as $linea) {
+            fputcsv($archivoTemp, (array) $linea);
+        }
+
+        // Coloca el cursor al principio del archivo
+        rewind($archivoTemp);
+
+        // Establece las cabeceras para la descarga
+        $response = $response->withHeader('Content-Type', 'aplication/csv')->withHeader('Content-Disposition', 'attachment; filename="ventas.csv"');
+
+        // Lee el contenido del archivo y escribe en el cuerpo de la respuesta
+        $response->getBody()->write(stream_get_contents($archivoTemp));
+
+        // Cierra el archivo temporal
+        fclose($archivoTemp);
+
+        return $response;
+    }
 }
